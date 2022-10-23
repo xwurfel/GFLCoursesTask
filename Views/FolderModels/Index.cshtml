@@ -1,0 +1,39 @@
+﻿@model IEnumerable<task.Models.FolderModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <tbody>
+
+<p>
+    "Folder" - @Model.First().Name
+</p>
+
+    @if(Model.First().Id == Model.First().ParentId)
+    {
+        <text>All Paths in code.</text>
+        <br></br>
+        <a href="?arg=2" >Import Directory</a>
+        <br></br>
+        <a href="?arg=3">Import File</a>
+        <br></br>
+        <a href="?arg=1">Export</a>
+        <br></br>
+    }
+    
+@for (var i = 1; i < Model.Count(); i++) {
+        <tr>
+            <td>
+                  <a href="@Model.First().Name/@Model.ElementAt(i).Name">@Model.ElementAt(i).Name</a>
+            </td>
+        </tr>
+}
+    </tbody>
+
+    <script>
+
+        
+    </script>
+</table>
